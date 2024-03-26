@@ -1,11 +1,13 @@
-import './App.css';
-import { useState } from 'react';
-import Two_ex from './study/Two_ex';
+// import './App.css';
 
+import { RouterProvider } from 'react-router-dom';
+import studyRouter from './router';
+import Say from './study/Say';
 function App() {
   return (
     <>
-      <Two_ex />
+      <RouterProvider router={studyRouter} />
+      <Say></Say>
     </>
   );
 }
