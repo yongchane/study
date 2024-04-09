@@ -55,6 +55,8 @@
 //업그래이드 버전
 
 import { useState } from 'react';
+import './EventPractice.scss';
+
 const EventPractice = () => {
   const [form, setForm] = useState({
     username: '', //username이 key고 ''가 value이다
@@ -88,7 +90,7 @@ const EventPractice = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div className="templte">
       <h1>이벤트 연습</h1>
 
       <input
