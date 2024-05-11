@@ -1,62 +1,32 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
-
+import Layout from './study/Layout';
+import mainRouter from './mainRouter';
+import studiesRouter from './studiesRouter';
+const Home1 = lazy(() => import('./study/home'));
 const Loading = <div>Loading...</div>;
-const Example1 = lazy(() => import('./study/First_ex'));
-const Example2 = lazy(() => import('./study/Two_ex'));
-const Example3 = lazy(() => import('./study/MyComponent'));
-const Example4 = lazy(() => import('./study/EventPractice'));
-const Example5 = lazy(() => import('./study/IterationSample'));
-const Example6 = lazy(() => import('./study/InputSample'));
 
 const studyRouter = createBrowserRouter([
   {
-    path: 'study1',
+    path: '/', // 루트 경로에 대한 설정
     element: (
       <Suspense fallback={Loading}>
-        <Example1></Example1>
+        <Layout />
       </Suspense>
     ),
-  },
-  {
-    path: 'study2',
-    element: (
-      <Suspense fallback={Loading}>
-        <Example2></Example2>
-      </Suspense>
-    ),
-  },
-  {
-    path: 'study3',
-    element: (
-      <Suspense fallback={Loading}>
-        <Example3>리엑트</Example3>
-      </Suspense>
-    ),
-  },
-  {
-    path: 'study4',
-    element: (
-      <Suspense fallback={Loading}>
-        <Example4 />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'study5',
-    element: (
-      <Suspense fallback={Loading}>
-        <Example5 />
-      </Suspense>
-    ),
-  },
-  {
-    path: 'study6',
-    element: (
-      <Suspense fallback={Loading}>
-        <Example6 />
-      </Suspense>
-    ),
+    children: [
+      ...mainRouter,
+      ...studiesRouter, // mainRouter 배열을 여기에 확장
+      // Home1 컴포넌트를 렌더링하는 라우트를 추가
+      {
+        path: 'home',
+        element: (
+          <Suspense fallback={Loading}>
+            <Home1 />
+          </Suspense>
+        ),
+      },
+    ],
   },
 ]);
 export default studyRouter;

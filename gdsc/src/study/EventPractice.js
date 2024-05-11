@@ -55,7 +55,7 @@
 //업그래이드 버전
 
 import { useState } from 'react';
-import './EventPractice.scss';
+import './PageStyle/EventPractice.scss';
 
 const EventPractice = () => {
   const [form, setForm] = useState({

@@ -2,6 +2,9 @@
 
 import { RouterProvider } from 'react-router-dom';
 import studyRouter from './router';
+import AverageRef from './home/AverageRef';
+import AverageCallback from './home/AverageCallback';
+import InfoHook from './home/InfoHook';
 
 function App() {
   return (
